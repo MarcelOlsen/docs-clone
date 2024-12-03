@@ -17,6 +17,12 @@ import {
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
+import { FontFamilyButton } from "./components/font-family-button";
+import { HeadingLevelButton } from "./components/heading-level-button";
+import { TextColorPicker } from "./components/text-color-picker";
+import { HighlightColorPicker } from "./components/highlight-color-picker";
+import { LinkButton } from "./components/link-button";
+import { ImageButton } from "./components/image-button";
 
 interface ToolbarButtonProps {
   onClick?: () => void;
@@ -126,20 +132,20 @@ export const Toolbar = () => {
         <ToolbarButton key={index} {...item} />
       ))}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {/* TODO: Font family */}
+      <FontFamilyButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {/* TODO: Heading */}
+      <HeadingLevelButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {/* TODO: Font size */}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {sections[1].map((item, index) => (
         <ToolbarButton key={index} {...item} />
       ))}
-      {/* TODO: Text color */}
-      {/* TODOL Highlight color */}
+      <TextColorPicker />
+      <HighlightColorPicker />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {/* TODO: Link */}
-      {/* TODO: Image */}
+      <LinkButton />
+      <ImageButton />
       {/* TODO: Align */}
       {/* TODO: Line height */}
       {/* TODO: List */}
