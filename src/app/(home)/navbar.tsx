@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SearchInput } from "./search-input";
+import { SearchInput } from "./components/search-input";
 
 export const Navbar = () => {
   return (
