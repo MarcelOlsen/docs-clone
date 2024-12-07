@@ -90,7 +90,9 @@ export const removeById = mutation({
       | undefined;
 
     const isAdmin = user.role == "org:admin";
-    const isOrganizationMember = document.organizationId === organizationId;
+    const isOrganizationMember = !!(
+      organizationId && document.organizationId === organizationId
+    );
 
     if (isOwner || (isOrganizationMember && isAdmin)) {
       console.log("Is owner or is admin in current org");
@@ -120,9 +122,23 @@ export const updateById = mutation({
     const organizationId = (user.organization_id ?? undefined) as
       | string
       | undefined;
+    const isOrgMember = !!(
+      organizationId && organizationId === user.organizationId
+    );
 
-    if (!isOwner) throw new ConvexError("Unauthorized");
+    if (!isOwner && !isOrgMember) throw new ConvexError("Unauthorized");
 
     return ctx.db.patch(args.id, { title: args.title });
+  },
+});
+
+export const getById = query({
+  args: { id: v.id("documents") },
+  handler: async (ctx, { id }) => {
+    const document = await ctx.db.get(id);
+
+    if (!document) throw new ConvexError("Document not found");
+
+    return document;
   },
 });
