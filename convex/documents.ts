@@ -5,9 +5,25 @@ import { paginationOptsValidator } from "convex/server";
 export const getDocuments = query({
   args: {
     paginationOpts: paginationOptsValidator,
+    searchQuery: v.optional(v.string()),
   },
-  handler: async (ctx, args) => {
-    return await ctx.db.query("documents").paginate(args.paginationOpts);
+  handler: async (ctx, { searchQuery, paginationOpts }) => {
+    const user = await ctx.auth.getUserIdentity();
+
+    if (!user) throw new ConvexError("Unauthorized");
+
+    if (searchQuery)
+      return ctx.db
+        .query("documents")
+        .withSearchIndex("searchTitle", (q) =>
+          q.search("title", searchQuery).eq("ownerId", user.subject),
+        )
+        .paginate(paginationOpts);
+
+    return await ctx.db
+      .query("documents")
+      .withIndex("by_owner_id", (q) => q.eq("ownerId", user.subject))
+      .paginate(paginationOpts);
   },
 });
 
