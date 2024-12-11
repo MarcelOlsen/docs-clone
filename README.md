@@ -6,7 +6,7 @@ Built using modern web technologies and real-time collaboration features. Featur
 
 ### Live Demo
 
-Visit docs.marcelolsen.dev to try out the application.
+Visit [docs.marcelolsen.dev](https://docs.marcelolsen.dev) to try out the application.
 
 ### Features
 
