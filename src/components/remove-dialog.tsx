@@ -49,11 +49,11 @@ export const RemoveDialog = ({ documentId, children }: RemoveDialogProps) => {
               e.stopPropagation();
               setIsRemoving(true);
               remove({ id: documentId })
-                .then(() => {
-                  toast.success("Document removed.");
-                })
                 .catch(() => {
                   toast.error("Something went wrong.");
+                })
+                .then(() => {
+                  toast.success("Document removed.");
                 })
                 .finally(() => {
                   setIsRemoving(false);
