@@ -2,7 +2,7 @@
 export default {
   providers: [
     {
-      domain: "https://wise-stinkbug-86.clerk.accounts.dev",
+      domain: process.env.CLERK_URL_ENDPOINT!,
       applicationID: "convex",
     },
   ],
