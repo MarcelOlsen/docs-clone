@@ -1,10 +1,4 @@
-import {
-  AlignCenterIcon,
-  AlignJustifyIcon,
-  AlignLeftIcon,
-  AlignRightIcon,
-  ListCollapseIcon,
-} from "lucide-react";
+import { ListCollapseIcon } from "lucide-react";
 
 import { useEditorStore } from "@/store/use-editor-store";
 import {

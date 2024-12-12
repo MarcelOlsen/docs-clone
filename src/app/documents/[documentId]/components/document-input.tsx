@@ -55,7 +55,6 @@ export const DocumentInput = ({ title, id }: DocumentInputProps) => {
       })
       .catch(() => {
         toast.error("Failed to update document title");
-        setIsError(true);
       })
       .finally(() => {
         setIsPending(false);
