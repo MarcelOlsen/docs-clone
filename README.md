@@ -42,11 +42,11 @@ Visit [docs.marcelolsen.dev](https://docs.marcelolsen.dev) to try out the applic
 
 ### Tech Stack
 
-**Framework**: Next.js 14
-**Database & Backend**: Convex
-**Real-time Collaboration**: Liveblocks
-**Authentication**: Clerk
-**Rich Text Editor**: TipTap
+**Framework**: Next.js 14 \
+**Database & Backend**: Convex \
+**Real-time Collaboration**: Liveblocks \
+**Authentication**: Clerk \
+**Rich Text Editor**: TipTap \
 **UI Components**:
 
 - Radix UI
