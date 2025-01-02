@@ -48,10 +48,9 @@ Visit [docs.marcelolsen.dev](https://docs.marcelolsen.dev) to try out the applic
 **Authentication**: Clerk \
 **Rich Text Editor**: TipTap \
 **UI Components**:
-
 - Radix UI
 - Shadcn/ui
-  **Styling**: Tailwind CSS
+**Styling**: Tailwind CSS
 
 ### Getting Started
 
